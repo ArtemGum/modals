@@ -7,11 +7,11 @@
 
 				 <!-- registration modal -->
 				<button class="btn btnPrimary" @click="modalRegistration = !modalRegistration">Registration</button>
-				<modalRegistration v-show="modalRegistration" @close="modalRegistration = false"/>
+				<modalRegistration @swap-form="swapForm" v-show="modalRegistration" @close="modalRegistration = false"/>
 
 				<!-- Login modal -->
 				<button class="btn btnPrimary" @click="modalLogin = !modalLogin">Login</button>
-				<modalLogin v-show="modalLogin" @close="modalLogin = false" />
+				<modalLogin @swap-form="swapForm" v-show="modalLogin" @close="modalLogin = false" />
 
 			</div>
 		</section>
@@ -36,6 +36,10 @@ export default {
 		}
 	},
 	methods: {
+		swapForm () {
+      this.modalRegistration = !this.modalRegistration
+      this.modalLogin = !this.modalLogin
+    }
 	}
 }
 </script>

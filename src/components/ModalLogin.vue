@@ -1,6 +1,6 @@
 <template>
   <modal
-    title="Registration"
+    title="Login"
     @close="close">
     <!-- body -->
     <div slot="body">
@@ -30,7 +30,7 @@
         </div>
         <!-- button -->
         <button class="btn btnPrimary">Login!</button>
-				<div>Need registration? <a @click="$emit('swap-form')">Enter Here</a></div>
+				<div>Need registration? <span @click="$emit('swap-form')">Enter Here</span></div>
       </form>
     </div>
   </modal>

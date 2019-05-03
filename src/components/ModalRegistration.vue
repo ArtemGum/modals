@@ -40,7 +40,7 @@
         </div>
         <!-- button -->
         <button class="btn btnPrimary">Registration!</button>
-				<div>Do you have account? <a href="login.html">Enter Here</a></div>
+				<div>Do you have account? <div @click="$emit('swap-form')">Enter Here</div></div>
       </form>
     </div>
   </modal>
