@@ -23,6 +23,7 @@
           <p class="errorText" v-if="!$v.password.required"> Password is required! </p>
 					<p class="errorText" v-if="!$v.password.minLength">Password must have at least {{ $v.password.$params.minLength.min }} letters.</p>
           <input
+						type="password"
             v-model="password"
             :class="{ error: $v.password.$error }"
             @change="$v.password.$touch()">
@@ -32,6 +33,7 @@
           <label>Repeat password:</label>
           <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">Passwords must be identical.</p>
           <input
+						type="password"
             v-model="repeatPassword"
             :class="{ error: $v.repeatPassword.$error }"
             @change="$v.repeatPassword.$touch()">
@@ -40,7 +42,7 @@
         </div>
         <!-- button -->
         <button class="btn btnPrimary">Registration!</button>
-				<div>Do you have account? <div @click="$emit('swap-form')">Enter Here</div></div>
+				<div>Do you have account? <a style="cursor: pointer; color: #444ce0;" @click="$emit('login')">Enter Here</a></div>
       </form>
     </div>
   </modal>

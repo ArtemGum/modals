@@ -23,6 +23,7 @@
           <p class="errorText" v-if="!$v.password.required"> Password is required! </p>
 					<p class="errorText" v-if="!$v.password.minLength">Password must have at least {{ $v.password.$params.minLength.min }} letters.</p>
           <input
+						type="password"
             v-model="password"
             :class="{ error: $v.password.$error }"
             @change="$v.password.$touch()">
@@ -30,7 +31,7 @@
         </div>
         <!-- button -->
         <button class="btn btnPrimary">Login!</button>
-				<div>Need registration? <span @click="$emit('swap-form')">Enter Here</span></div>
+				<div>Need registration? <a style="cursor: pointer; color: #444ce0;" @click="$emit('register')">Enter Here</a></div>
       </form>
     </div>
   </modal>

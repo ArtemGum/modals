@@ -6,12 +6,12 @@
 			<div class="container">
 
 				 <!-- registration modal -->
-				<button class="btn btnPrimary" @click="modalRegistration = !modalRegistration">Registration</button>
-				<modalRegistration @swap-form="swapForm" v-show="modalRegistration" @close="modalRegistration = false"/>
+				<button class="btn btnPrimary" @click="auth = 'register'">Registration</button>
+				<modalRegistration @login="auth = 'login'" v-show="auth === 'register'" @close="auth = null"/>
 
 				<!-- Login modal -->
-				<button class="btn btnPrimary" @click="modalLogin = !modalLogin">Login</button>
-				<modalLogin @swap-form="swapForm" v-show="modalLogin" @close="modalLogin = false" />
+				<button class="btn btnPrimary" @click="auth = 'login'">Login</button>
+				<modalLogin @register="auth = 'register'" v-show="auth === 'login'" @close="auth = null" />
 
 			</div>
 		</section>
@@ -24,22 +24,20 @@
 <script>
 
 import modals from '@/components/UI/Modal.vue'
-import modalRegistration from '@/components/ModalRegistration.vue'
-import modalLogin from '@/components/ModalLogin.vue'
+import modalRegistration from '@/components/Auth/Registration.vue'
+import modalLogin from '@/components/Auth/Login.vue'
 
 export default {
   components: { modals, modalRegistration, modalLogin },
 	data () {
 		return {
-			modalRegistration: false,
-			modalLogin: false
+			auth: null,
+			login: true,
+			register: true
 		}
 	},
 	methods: {
-		swapForm () {
-      this.modalRegistration = !this.modalRegistration
-      this.modalLogin = !this.modalLogin
-    }
+		
 	}
 }
 </script>
